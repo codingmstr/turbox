@@ -1,0 +1,43 @@
+[package]
+name = "turbox"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "turbox"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.27.1", features = ["extension-module", "auto-initialize"] }
+pyo3-async-runtimes = { version = "0.27.0", features = ["tokio-runtime"] }
+actix-web = "4.12"
+actix-rt = "2.11"
+tokio = { version = "1.48", features = ["full"] }
+socket2 = { version = "0.5", features = ["all"] }
+libc = "0.2"
+parking_lot = "0.12"
+bytes = "1.11"
+dashmap = "5"
+lazy_static = "1.4"
+tokio-stream = "0.1"
+once_cell = "1.21"
+futures-util = "0.3"
+flume = "0.11"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+pythonize = "0.27"
+mimalloc = { version = "0.1", default-features = false }
+nix = { version = "0.30", features = ["process", "signal"] }
+crossbeam-channel = "0.5"
+crossbeam-queue = "0.3"
+num_cpus = "1.16"
+core_affinity = "0.8"
+paste = "1.0"
+inventory = "0.3"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+opt-level = 3

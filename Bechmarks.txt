@@ -1,0 +1,56 @@
+
+Benchmarks :
+
+Turbox -> 
+
+    1 second ( 8 workers ) :
+
+        wrk -t8 -c400 -d1s http://127.0.0.1:8000 ->
+            Running 1s test @ http://127.0.0.1:8000
+            8 threads and 400 connections
+            Thread Stats   Avg      Stdev     Max   +/- Stdev
+                Latency     2.95ms    4.79ms  40.39ms   87.51%
+                Req/Sec    37.28k     9.22k   69.96k    71.25%
+            302742 requests in 1.09s, 22.23MB read
+            Requests/sec: 276743.85
+            Transfer/sec:     20.32MB
+
+    60 second ( 8 workers ) :
+
+        wrk -t8 -c400 -d60s http://127.0.0.1:8000 ->
+            Running 1m test @ http://127.0.0.1:8000
+            8 threads and 400 connections
+            Thread Stats   Avg      Stdev     Max   +/- Stdev
+                Latency     3.40ms    4.71ms  97.11ms   87.67%
+                Req/Sec    25.23k     7.00k   61.73k    73.00%
+            12085849 requests in 0.96m, 0.87GB read
+            Socket errors: connect 0, read 0, write 0, timeout 727
+            Requests/sec: 209190.65
+            Transfer/sec:     15.36M
+
+Granian -> 
+
+    1 second ( 8 workers ) :
+
+        wrk -t8 -c400 -d1s http://127.0.0.1:8000 ->
+            Running 1s test @ http://127.0.0.1:8000
+            8 threads and 400 connections
+            Thread Stats   Avg      Stdev     Max   +/- Stdev
+                Latency     2.84ms    2.39ms  29.44ms   87.58%
+                Req/Sec    19.76k     4.04k   48.26k    87.50%
+            157173 requests in 1.06s, 17.99MB read
+            Requests/sec: 148638.76
+            Transfer/sec:     17.01MB
+
+    60 second ( 8 workers ) :
+
+        wrk -t8 -c400 -d60s http://127.0.0.1:8000 ->
+            Running 1m test @ http://127.0.0.1:8000
+            8 threads and 400 connections
+            Thread Stats   Avg      Stdev     Max   +/- Stdev
+                Latency     4.17ms    4.74ms 182.71ms   94.86%
+                Req/Sec    13.32k     3.09k   48.32k    72.87%
+            6386390 requests in 0.98m, 730.86MB read
+            Socket errors: connect 0, read 0, write 0, timeout 794
+            Requests/sec: 108346.66
+            Transfer/sec:     12.40MB
